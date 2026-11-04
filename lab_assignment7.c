@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+//Linear Search
 void problem1(int *a, int size)
 {
     int target;
@@ -23,6 +24,7 @@ void problem1(int *a, int size)
         printf("Target value not found! , %d", target);
     }
 }
+//Binary Search
 void problem2(int *a, int size)
 {
     int target, k = 0;
@@ -56,6 +58,7 @@ void problem2(int *a, int size)
         printf("Target value not found! , %d", target);
     }
 }
+//Bubble Sort
 void problem3(int a[], int size)
 {
     for (int i = 0; i < size; i++)
@@ -77,6 +80,7 @@ void problem3(int a[], int size)
     }
     printf("\n");
 }
+//Selection Sort
 void problem4(int a[], int size)
 {
     int min_idx;
