@@ -74,6 +74,7 @@ void Withdraw(){
     amount-=withdraw;
     transc++;
 }
+// Fibonacci Series nth factorial
 int main()
 {
     int choice;
@@ -165,6 +166,13 @@ int main()
         exit:;
     }
     break;
+    case 4: {
+        int *ct,n;
+        printf("Enter the value : ");
+        scanf("%d",&n);
+        fibonacci(n);
+        
+    }
     default:
         printf("Invalid Choice!");
     }

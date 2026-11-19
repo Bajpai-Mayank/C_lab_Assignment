@@ -32,7 +32,7 @@ int main()
     int num;
     printf("Enter the number/n");
     scanf("%d", &num);
-    int size = (num == 0) ? 1 : 1 + log10(num);
+    int len = (num == 0) ? 1 : 1 + log10(num);
     int *arr = malloc(len * sizeof(int));
     int i = 0;
     while (num != 0)
