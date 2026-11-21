@@ -99,7 +99,7 @@ unsigned long long factorial(int n)
 }
 //probabilities Calculation
 //factorial function code already written! 
- double nCr(int n , int r){
+double nCr(int n , int r){
     return factorial(n)/(factorial(r)*factorial(n-r));
 }
 unsigned long long power(int n , int exp){
