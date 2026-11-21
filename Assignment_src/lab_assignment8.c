@@ -108,7 +108,7 @@ unsigned long long power(int n , int exp){
     }
     return n*power(n , exp-1);
 }
-double calculateProbability(int n , int p , int r){
+double calculateProbability(int n , int r){
     return nCr(n,r)/(double)pow(2.0,n);
 }
 int main()
@@ -232,13 +232,11 @@ int main()
         scanf("%d",&n);
         printf("Enter the number of students in a committee: ");
         scanf("%d",&r);
-        printf("Enter the number of possible such committees for which probabilities need to be calculated: ");
-        scanf("%d",&p);
-        if(n < 0 || p < 0 || r <0){
+        if(n < 0 || r <0){
             printf("Error: Please enter a non-negative integer.\n");
         }
         else {
-        double probability = calculateProbability(n,p,r);
+        double probability = calculateProbability(n,r);
         printf("The probability of selecting an r-member committee from n students : %.2Lf",probability);
         }
     }
