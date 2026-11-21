@@ -109,7 +109,7 @@ unsigned long long power(int n , int exp){
     return n*power(n , exp-1);
 }
 double calculateProbability(int n , int p , int r){
-    return nCr(n,r)/(double)pow(n,2.0);
+    return nCr(n,r)/(double)pow(2.0,n);
 }
 int main()
 {
