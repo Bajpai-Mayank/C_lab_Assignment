@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 // Perfect Number with its factor
 void problem1(int n)
 {
@@ -57,24 +58,59 @@ void rollDiceGame(int *pa, int *pb)
     }
 }
 // Bank Transaction , Deposit and Withdraw
-static int transc=0;
-static double deposit=0;
-static double withdraw=0;
-static double amount=0;
+static int transc = 0;
+static double deposit = 0;
+static double withdraw = 0;
+static double amount = 0;
 
-void Deposit(){
-    amount +=deposit;
+void Deposit()
+{
+    amount += deposit;
     transc++;
 }
-void Withdraw(){
-    if(withdraw > amount){
+void Withdraw()
+{
+    if (withdraw > amount)
+    {
         printf("Aukat me raho!!\n");
         return;
     }
-    amount-=withdraw;
+    amount -= withdraw;
     transc++;
 }
 // Fibonacci Series nth factorial
+unsigned long fibonacci(int n)
+{
+    if (n <= 1)
+    {
+        return n;
+    }
+    return fibonacci(n - 2) + fibonacci(n - 1);
+}
+//Factorial 
+unsigned long long factorial(int n)
+{
+    if (n <= 1)
+    {
+        return 1;
+    }
+
+    return n * factorial(n - 1);
+}
+//probabilities Calculation
+//factorial function code already written! 
+ double nCr(int n , int r){
+    return factorial(n)/(factorial(r)*factorial(n-r));
+}
+unsigned long long power(int n , int exp){
+    if(n == 0){
+        factorial(n);
+    }
+    return n*power(n , exp-1);
+}
+double calculateProbability(int n , int p , int r){
+    return nCr(n,r)/(double)pow(n,2.0);
+}
 int main()
 {
     int choice;
@@ -101,7 +137,8 @@ int main()
         int a = 0, b = 0;
         char ply_a[100];
         char ply_b[100];
-        while (getchar() != '\n');
+        while (getchar() != '\n')
+            ;
         printf("==============DICE GAME============\n");
         printf("Player A: Enter your Name : ");
         fgets(ply_a, sizeof(ply_a), stdin);
@@ -137,42 +174,75 @@ int main()
             scanf("%d", &ch);
             switch (ch)
             {
-            case 1: 
-            printf("Current Amount : %.2lf\n",amount);
+            case 1:
+                printf("Current Amount : %.2lf\n", amount);
                 break;
             case 2:
-            printf("Enter the deposit Amount : ");
-            scanf("%lf",&deposit);
-            Deposit();
-            printf("\n Updated Amount : %.2lf",amount);
+                printf("Enter the deposit Amount : ");
+                scanf("%lf", &deposit);
+                Deposit();
+                printf("\n Updated Amount : %.2lf", amount);
                 break;
             case 3:
-            printf("Enter the withdraw Amount : ");
-            scanf("%lf",&withdraw);
-            Withdraw();
-            printf("\n Updated Amount : %.2lf",amount);
+                printf("Enter the withdraw Amount : ");
+                scanf("%lf", &withdraw);
+                Withdraw();
+                printf("\n Updated Amount : %.2lf", amount);
                 break;
             case 4:
-            printf("Total no. of Transaction include deposit and withdraw : %d",transc);
+                printf("Total no. of Transaction include deposit and withdraw : %d", transc);
                 break;
             case 5:
-            printf("Exting ....\n");
-            goto exit;
+                printf("Exting ....\n");
+                goto exit;
                 break;
             default:
-            printf("Invalid Choice! \n ");
+                printf("Invalid Choice! \n ");
             }
         }
-        exit:;
+    exit:;
     }
     break;
-    case 4: {
-        int *ct,n;
+    case 4:
+    {
+        int n;
         printf("Enter the value : ");
-        scanf("%d",&n);
-        fibonacci(n);
-        
+        scanf("%d", &n);
+        if (n < 0)
+        {
+            printf("Error: Please enter a non-negative integer.\n");
+        }
+        else if (n > 7)
+        {
+            printf("Error: Input too large (fibonacci(%d)! overflows 64-bit integer).\n", n);
+        }
+        else
+        {
+            unsigned long fibo_value = fibonacci(n);
+            unsigned long long fact_value = factorial(fibo_value);
+            printf("Fibonacci of index : %d is -> %lu\n", n, fibo_value);
+            printf("Factorial of fibonacci's value at index : %d is -> %llu\n", n, fact_value);
+        }
     }
+    break;
+    case 5:
+    {
+        int n,p,r;
+        printf("Enter the total number of students: ");
+        scanf("%d",&n);
+        printf("Enter the number of students in a committee: ");
+        scanf("%d",&r);
+        printf("Enter the number of possible such committees for which probabilities need to be calculated: ");
+        scanf("%d",&p);
+        if(n < 0 || p < 0 || r <0){
+            printf("Error: Please enter a non-negative integer.\n");
+        }
+        else {
+        double probability = calculateProbability(n,p,r);
+        printf("The probability of selecting an r-member committee from n students : %.2Lf",probability);
+        }
+    }
+    break;
     default:
         printf("Invalid Choice!");
     }

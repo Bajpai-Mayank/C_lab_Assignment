@@ -13,6 +13,7 @@ void swaping(int *ptr1, int *ptr2)
 int main()
 {
     int *ptr1, *ptr2;
+    int *ptr3;
     int num1 = 10, num2 = 20;
     ptr1 = &num1;
     ptr2 = &num2;
