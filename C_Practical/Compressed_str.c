@@ -33,6 +33,12 @@
 
 //     return 0;
 // }
+/* Now, I have written the correct approach with correct code !!!
+Problems facing during lab :
+Forgot about the conversion integer to char
+memory issue as pointer string , not working after taking input
+snprintf properties forgot.
+*/
 int main(){
     char str[100];
     printf("Enter the string : ");
