@@ -35,7 +35,7 @@
 // }
 /* Now, I have written the correct approach with correct code !!!
 Problems facing during lab :
-Forgot about the conversion integer to char
+conversion integer to char , not working.
 memory issue as pointer string , not working after taking input
 snprintf properties forgot.
 */
