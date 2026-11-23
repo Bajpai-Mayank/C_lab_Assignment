@@ -22,7 +22,7 @@ int main()
     printf("number1 = %d \n", *ptr1);
     printf("number2 = %d \n", *ptr2);
     // Standard way
-    swaping(&num1, &num2);
+    swaping(ptr1, ptr2);
     // legal approach / Modern Approach /Compound literals
     swaping(&(int){10}, &(int){20});
     //Pointer Address
